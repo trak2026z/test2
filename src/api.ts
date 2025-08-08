@@ -12,9 +12,9 @@ export async function fetchEpicImage(): Promise<{ url: string; date: string }> {
 
   const latest = data[0];
   const date = new Date(latest.date);
-  const formattedDate = `${date.getUTCFullYear()}/${String(date.getUTCMonth() + 1).padStart(2, "0")}/${String(date.getUTCSate()).padStart(2, "0")}`;
+  const formattedDate = `${date.getUTCFullYear()}/${String(date.getUTCMonth() + 1).padStart(2, "0")}/${String(date.getUTCDate()).padStart(2, "0")}`;
   
-  const url =  https://epic.gsfc.nasa.gov/archive/natural/${formattedDate}/png/${latest.image}.png;
+  const url = `https://epic.gsfc.nasa.gov/archive/natural/${formattedDate}/png/${latest.image}.png`;
   
   return { url, date: latest.date };
 }

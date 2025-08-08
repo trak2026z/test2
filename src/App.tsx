@@ -12,8 +12,9 @@ export default function App () {
       .catch((err) => setError(err.message));
   }, []);
 
-  if (error) return <p style={ color: "red" }>B�d�r: ${error}</p>;
-  if (!imageData) return <p>Üadowanie...</p>;
+  if (error) return <p style={{ color: "red" }}>Błąd: {error}</p>;
+
+  if (!imageData) return <p>Ładowanie...</p>;
 
   return <EpicImage url={imageData.url} date={imageData.date} />;
 }

@@ -1,20 +1,21 @@
-from node:18 as build
+# Etap build
+FROM node:18 as build
 
- # Copy package json and install dependencies
-COPY package.json .
-
+WORKDIR /app
+COPY package.json package-lock.json* ./
 RUN npm install
 
- # Build application
+COPY . .
 RUN npm run build
 
-FROM nginx:18 as
- 
-# Copy build output
-COPY --from=build/output /app/dist/
+# Etap produkcyjny
+FROM nginx:stable-alpine as production
 
-# Expose port
-EXPOSE 3000
+# Skopiuj build do katalogu Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Start production server
-COMMAND ng serve -s /app/dist
+# Eksponuj port 80
+EXPOSE 80
+
+# Uruchom Nginx w trybie foreground
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "atom": "next",
-    "target": "es",
+    "target": "ESNext",
     "lib": ["ES2023"],
     "strict": true,
     "esmModule": "vuep",
