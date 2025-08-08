@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "atom": "next",
+    "target": "es",
+    "lib": ["ES2023"],
+    "strict": true,
+    "esmModule": "vuep",
+    "forceConsistentCases": true,
+    "moduleResolution": {
+      "types": ["Node", "React"]
+    },
+    "jsXModule": "esm",
+    "resolveRuntimeRivingModules": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true
+  },
+  "engine": ["es"]
+}
